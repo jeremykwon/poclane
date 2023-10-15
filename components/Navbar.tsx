@@ -3,6 +3,10 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
+
+// components
+import { Logo } from 'components/custom/Logo';
+
 import { useNewsletterModalContext } from 'contexts/newsletter-modal.context';
 import { ScrollPositionEffectProps, useScrollPosition } from 'hooks/useScrollPosition';
 import { NavItems, SingleNavItem } from 'types';
@@ -11,7 +15,7 @@ import Button from './Button';
 import Container from './Container';
 import Drawer from './Drawer';
 import { HamburgerIcon } from './HamburgerIcon';
-import Logo from './Logo';
+// import Logo from './Logo';
 
 const ColorSwitcher = dynamic(() => import('../components/ColorSwitcher'), { ssr: false });
 
@@ -70,12 +74,11 @@ export default function Navbar({ items }: NavbarProps) {
         <NextLink href="/" passHref>
           <LogoWrapper>
             <Logo />
+            <StyledTitle>상일중기</StyledTitle>
           </LogoWrapper>
         </NextLink>
         <NavItemList>
-          {items.map((singleItem) => (
-            <NavItem key={singleItem.href} {...singleItem} />
-          ))}
+          {items.map((singleItem) => <NavItem key={singleItem.href} {...singleItem} />)}
         </NavItemList>
         <ColorSwitcherContainer>
           <ColorSwitcher />
@@ -190,4 +193,10 @@ const Content = styled(Container)`
 const ColorSwitcherContainer = styled.div`
   width: 4rem;
   margin: 0 1rem;
+`;
+
+const StyledTitle = styled.p`
+  font-size: 30px;
+  font-weight: 700;
+  margin-left: 10px;
 `;

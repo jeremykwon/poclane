@@ -9,9 +9,10 @@ import SectionTitle from './SectionTitle';
 export interface PageProps {
   title: string;
   description?: string;
+  bottomContent: React.ReactNode;
 }
 
-export default function Page({ title, description, children }: PropsWithChildren<PageProps>) {
+export default function Page({ title, description, bottomContent, children }: PropsWithChildren<PageProps>) {
   return (
     <>
       <Head>
@@ -25,6 +26,7 @@ export default function Page({ title, description, children }: PropsWithChildren
           <Container>
             <Title>{title}</Title>
             {description && <Description>{description}</Description>}
+            {bottomContent && bottomContent}
           </Container>
         </HeaderContainer>
         <Container>
@@ -44,7 +46,11 @@ const HeaderContainer = styled.div`
   align-items: center;
   justify-content: center;
   background: rgb(var(--secondary));
-  min-height: 40rem;
+  min-height: 45rem;
+
+  ${media('<=phone')} {
+    min-height: 50rem;
+  }
 `;
 
 const Title = styled(SectionTitle)`

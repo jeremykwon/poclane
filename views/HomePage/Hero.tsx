@@ -1,10 +1,11 @@
-import NextLink from 'next/link';
+// import NextLink from 'next/link';
+import Image from 'next/image';
 import styled from 'styled-components';
 import Button from 'components/Button';
 import ButtonGroup from 'components/ButtonGroup';
 import Container from 'components/Container';
-import HeroIllustration from 'components/HeroIllustation';
-import OverTitle from 'components/OverTitle';
+// import HeroIllustration from 'components/HeroIllustation';
+// import OverTitle from 'components/OverTitle';
 import { useNewsletterModalContext } from 'contexts/newsletter-modal.context';
 import { media } from 'utils/media';
 
@@ -14,25 +15,21 @@ export default function Hero() {
   return (
     <HeroWrapper>
       <Contents>
-        <CustomOverTitle>the coolest, saas product you have ever seen</CustomOverTitle>
-        <Heading>Make your life easier with our SaaS</Heading>
+        {/* <CustomOverTitle>the coolest, saas product you have ever seen</CustomOverTitle> */}
+        <Heading>Fuxk Clain 만의 차별화된 기술로 땅속의 비트코인까지 채굴합니다.</Heading>
         <Description>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, tempora qui. Explicabo voluptate iure ipsum molestias
           repudiandae perspiciatis nostrum praesentium, unde pariatur tempora magni rem. Necessitatibus facilis obcaecati ratione.
         </Description>
         <CustomButtonGroup>
           <Button onClick={() => setIsModalOpened(true)}>
-            Subscribe to the newsletter <span>&rarr;</span>
+            견적문의 <span>&rarr;</span>
           </Button>
-          <NextLink href="#whitepaper" passHref>
-            <Button transparent>
-              Features <span>&rarr;</span>
-            </Button>
-          </NextLink>
         </CustomButtonGroup>
       </Contents>
       <ImageContainer>
-        <HeroIllustration />
+        {/* <HeroIllustration /> */}
+        <img src={'/images/temp-banner-image.jpeg'} alt="메인이미지" />
       </ImageContainer>
     </HeroWrapper>
   );
@@ -60,6 +57,7 @@ const Contents = styled.div`
 
 const CustomButtonGroup = styled(ButtonGroup)`
   margin-top: 4rem;
+
 `;
 
 const ImageContainer = styled.div`
@@ -68,14 +66,15 @@ const ImageContainer = styled.div`
   justify-content: flex-end;
   align-items: flex-start;
 
-  svg {
-    max-width: 45rem;
+  img {
+    border-radius: 5px;
+    width: 90%;
   }
 
   ${media('<=desktop')} {
     margin-top: 2rem;
     justify-content: center;
-    svg {
+    img {
       max-width: 80%;
     }
   }
@@ -91,12 +90,8 @@ const Description = styled.p`
   }
 `;
 
-const CustomOverTitle = styled(OverTitle)`
-  margin-bottom: 2rem;
-`;
-
 const Heading = styled.h1`
-  font-size: 7.2rem;
+  font-size: 4rem;
   font-weight: bold;
   line-height: 1.1;
   margin-bottom: 4rem;
